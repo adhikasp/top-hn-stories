@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top HN Stories Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <h1>Hacker News Top Stories Visualization</h1>
+    <div class="instructions">
+        <p>📊 Interactive visualization of top-rated Hacker News stories</p>
+        <p>🖱️ Click on any point to open the story in a new tab</p>
+        <p>ℹ️ Hover over points to see story details</p>
+    </div>
+    <div class="plot-container" id="plotDiv"></div>
+    
+    <div class="monthly-stories">
+        <h2>📈 Top Stories by Month</h2>
+        <div id="monthlyStoriesList"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

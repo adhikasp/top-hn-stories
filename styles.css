@@ -1,0 +1,162 @@
+:root {
+    --hn-orange: #ff6600;
+    --hn-background: #f6f6ef;
+    --text-primary: #2c3e50;
+    --text-secondary: #666;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --container-padding: 24px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0 auto;
+    padding: var(--container-padding);
+    background-color: var(--hn-background);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.plot-container {
+    background-color: white;
+    padding: var(--container-padding);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    height: 800px;
+    margin-bottom: 32px;
+    transition: transform 0.2s ease;
+}
+
+.plot-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    color: var(--hn-orange);
+    margin-bottom: 24px;
+    font-size: 2.5em;
+    text-align: center;
+    position: relative;
+    padding-bottom: 16px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--hn-orange);
+    border-radius: 2px;
+}
+
+h2 {
+    color: var(--hn-orange);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.instructions {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    font-size: 1.1em;
+    text-align: center;
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.monthly-stories {
+    background-color: white;
+    padding: var(--container-padding);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-top: 32px;
+}
+
+.monthly-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.monthly-table td {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.monthly-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.monthly-table td:first-child {
+    width: 200px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.story-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    display: block;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+}
+
+.story-link:hover {
+    color: var(--hn-orange);
+}
+
+/* Add responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .monthly-table td {
+        padding: 12px;
+    }
+
+    .monthly-table td:first-child {
+        width: auto;
+    }
+}
+
+/* Add loading animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.plot-container, .monthly-stories {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.loading {
+    text-align: center;
+    padding: 2em;
+    color: var(--text-secondary);
+}
+
+/* Optimize animations */
+.plot-container, .monthly-stories {
+    animation: fadeIn 0.3s ease-out;
+    will-change: transform, opacity;
+}
+
+/* Optimize performance for monthly table */
+.monthly-table {
+    contain: content;
+}
+
+.monthly-table td {
+    contain: content;
+    will-change: background-color;
+} 
